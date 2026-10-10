@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mini POS | Kasir Kantin</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+</head>
+<body>
+<header class="topbar">
+    <div class="brand">
+    <div class="brand-icon">M</div>
+    <div>
+        <h1>Mini POS</h1>
+        <p>Sistem Kasir Kantin Kampus</p>
+    </div>
+    </div>
+    <span class="status"><span></span> Sistem Aktif</span>
+</header>
+
+<main class="container">
+    <section class="welcome">
+    <div>
+        <p class="eyebrow">POINT OF SALE</p>
+        <h2>Kasir Kantin</h2>
+        <p>Kelola barang dan transaksi belanja dengan mudah.</p>
+    </div>
+    <div class="welcome-icon">🛒</div>
+    </section>
+
+    <section class="panel">
+    <div class="section-heading">
+        <div class="heading-icon">＋</div>
+        <div>
+        <h3>Tambah Barang</h3>
+        <p>Masukkan informasi barang yang akan dibeli.</p>
+        </div>
+    </div>
+
+    <form id="itemForm" novalidate>
+        <div class="form-grid">
+        <div class="field">
+            <label for="nama">Nama Barang</label>
+            <input id="nama" type="text"
+            placeholder="Contoh: Air Mineral">
+            <small class="error" id="namaError"></small>
+        </div>
+
+        <div class="field">
+            <label for="harga">Harga Satuan (Rp)</label>
+            <input id="harga" type="number" min="500"
+            step="1" placeholder="Contoh: 5000">
+            <small class="error" id="hargaError"></small>
+        </div>
+
+        <div class="field">
+            <label for="qty">Jumlah / Qty</label>
+            <input id="qty" type="number" min="1"
+            step="1" placeholder="Contoh: 2">
+            <small class="error" id="qtyError"></small>
+        </div>
+        </div>
+
+        <button class="btn btn-primary" type="submit">
+        + Tambahkan ke Keranjang
+        </button>
+    </form>
+    </section>
+
+    <section class="panel">
+    <div class="section-heading cart-heading">
+        <div class="heading-icon">▤</div>
+        <div>
+        <h3>Keranjang Belanja</h3>
+        <p>Daftar barang dalam transaksi saat ini.</p>
+        </div>
+        <span id="itemCount" class="count">0 item</span>
+    </div>
+
+    <div class="table-wrapper">
+        <table>
+        <thead>
+            <tr>
+            <th>No</th>
+            <th>Nama Barang</th>
+            <th>Harga Satuan</th>
+            <th>Qty</th>
+            <th>Subtotal</th>
+            <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody id="cartBody"></tbody>
+        </table>
+    </div>
+
+    <p id="emptyMessage" class="empty-message">
+        Keranjang masih kosong. Silakan tambahkan barang.
+    </p>
+    </section>
+
+    <section class="payment-grid">
+    <div class="panel payment-panel">
+        <div class="section-heading">
+        <div class="heading-icon">Rp</div>
+        <div>
+            <h3>Ringkasan Belanja</h3>
+            <p>Perhitungan transaksi otomatis.</p>
+        </div>
+        </div>
+
+        <div class="summary-row">
+        <span>Total Belanja</span>
+        <strong id="totalBelanja">Rp0</strong>
+        </div>
+        <div class="summary-row discount-row">
+        <span>Diskon (10%)</span>
+        <strong id="diskon">− Rp0</strong>
+        </div>
+        <div class="discount-note" id="discountNote">
+        Belanja minimal Rp50.000 untuk mendapat diskon 10%.
+        </div>
+        <div class="summary-total">
+        <span>Total Akhir</span>
+        <strong id="totalAkhir">Rp0</strong>
+        </div>
+
+        <div class="field payment-field">
+        <label for="uangBayar">Uang Bayar (Rp)</label>
+        <input id="uangBayar" type="number" min="0"
+            step="1" placeholder="Masukkan uang pembayaran">
+        <small class="error" id="bayarError"></small>
+        </div>
+
+        <div class="change-box">
+        <span id="changeLabel">Kembalian</span>
+        <strong id="kembalian">Rp0</strong>
+        <p id="paymentMessage">Masukkan nominal uang bayar.</p>
+        </div>
+
+        <button id="completeBtn" class="btn btn-success" type="button">
+        ✓ Selesaikan Transaksi
+        </button>
+        <button id="resetBtn" class="btn btn-outline" type="button">
+        Transaksi Baru / Reset
+        </button>
+    </div>
+
+    <aside class="panel info-panel">
+        <div class="info-symbol">💡</div>
+        <h3>Informasi Kasir</h3>
+        <p>Perhatikan ketentuan berikut saat melakukan transaksi.</p>
+        <ul>
+        <li>Nama barang minimal 3 karakter.</li>
+        <li>Harga barang minimal Rp500.</li>
+        <li>Jumlah barang berupa bilangan bulat minimal 1.</li>
+        <li>Diskon 10% berlaku untuk belanja minimal Rp50.000.</li>
+        <li>Transaksi hanya bisa diselesaikan jika uang mencukupi.</li>
+        </ul>
+        <div class="storage-info">
+        <span class="storage-dot"></span>
+        Keranjang tersimpan otomatis di browser.
+        </div>
+    </aside>
+    </section>
+
+    <footer>
+    <p>Mini POS — Praktikum Pemrograman Web</p>
+    </footer>
+</main>
+</body>
+</html>
