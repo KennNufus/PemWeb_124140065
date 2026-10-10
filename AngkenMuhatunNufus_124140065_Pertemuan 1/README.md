@@ -56,10 +56,10 @@ Aplikasi berjalan di browser dan tidak memerlukan backend maupun database.
 
 ## 7. Screenshot Aplikasi
 
-(screenshot/4.png)
-(screenshot/2.png)
-(screenshot/5.png)
-(screenshot/6.png)
+screenshot 1
+screenshot 2
+screenshot 5
+screenshot 6
 
 ## 8. Penjelasan Teknis
 
